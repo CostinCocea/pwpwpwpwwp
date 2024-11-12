@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesaj pentru Mama</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #FFF0F5;
+            color: #B22222;
+            text-align: center;
+            flex-direction: column;
+        }
+        
+        #countdown {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        #button-container {
+            display: none;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 12px 24px;
+            background-color: #FF69B4;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #FF1493;
+        }
+
+        #message {
+            display: none;
+            font-size: 22px;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-top: 30px;
+            color: #000000;
+        }
+
+        #signature {
+            display: none;
+            font-size: 24px;
+            margin-top: 20px;
+            color: #C71585;
+        }
+    </style>
+</head>
+<body>
+    <div id="countdown">10</div>
+    <div id="button-container">
+        <button onclick="showMessage()">Luminita Caragheorghe, va rog apasati pe acest buton</button>
+    </div>
+    <div id="message">
+        Dragă mamă ❤️, <br><br>
+        Îți mulțumesc din suflet pentru cine ești și pentru tot ce faci pentru mine, pentru sprijinul și iubirea pe care mi-o dăruiești. <br>
+        Te iubesc și te apreciez enorm. Nu cunosc o femeie mai deșteaptă sau mai frumoasă decât tine și sunt extrem de mândru că te pot numi mama mea. <br><br>
+        Cu toată dragostea, mereu, 
+    </div>
+    <div id="signature">Băiatul tău, Costin</div>
+
+    <script>
+        let countdown = 10;
+        const countdownElement = document.getElementById("countdown");
+        const buttonContainer = document.getElementById("button-container");
+        const message = document.getElementById("message");
+        const signature = document.getElementById("signature");
+
+        const interval = setInterval(() => {
+            countdown--;
+            countdownElement.textContent = countdown;
+            if (countdown === 0) {
+                clearInterval(interval);
+                countdownElement.style.display = "none";
+                buttonContainer.style.display = "block";
+            }
+        }, 1000);
+
+        function showMessage() {
+            message.style.display = "block";
+            buttonContainer.style.display = "none";
+            signature.style.display = "block";
+        }
+    </script>
+</body>
+</html>
